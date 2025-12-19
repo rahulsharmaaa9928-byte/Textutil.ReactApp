@@ -1,9 +1,7 @@
 import "./App.css";
 import Navbar from "./Navbar";
-import Textform from "./Textform";
-import About from "./About";
+import TextForm from "./TextForm";
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -19,18 +17,21 @@ function App() {
   };
 
   return (
-    <Router>
-      <Navbar textutils="TextUTILS" mode={mode} togglemode={toggleMode} />
+    <>
+      <Navbar
+        textutils="TextUTILS"
+        mode={mode}
+        togglemode={toggleMode}
+      />
 
       <div className="container my-3">
-        <Routes>
-          <Route exact path="/"
-            element={<Textform heading="Enter the text to analyze" mode={mode} />}
-          />
-          <Route exact path="/about" element={<About />} />
-        </Routes>
+        {/* ✅ TextForm is now UN-COMMENTED and visible */}
+        <TextForm
+          heading="Enter the text to analyze"
+          mode={mode}
+        />
       </div>
-    </Router>
+    </>
   );
 }
 
